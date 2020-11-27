@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User Registration Form</title>
+    </head>
+    <style>
+     *{
+        margin:0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    body{
+        background-image: url(Teqporte\ logo\ image.jpg);
+        background-size: 1300px 800px;
+        background-repeat: no-repeat;
+    }
+    .code{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        max-width: 400px;
+        opacity: 90%;
+        width: 100%;
+        background-color: #ffffff;
+        padding:25px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 1px 1px rgb(228, 253, 4);
+    }
+    .code h2{
+        text-align: center;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        color: #332902;
+        background-color: #fece0c;
+        border-radius:5px;
+        box-shadow: 4px 4px 0 0 rgb(240, 238, 238);
+    }
+    .code input[type] {
+        margin-bottom: 10px;
+        position: relative;
+        padding: 5px;
+        width: 100%;
+        border: 1px solid;
+        border-radius: 5px;
+        border: 1px solid;
+        background-color: rgba(80, 77, 77 .8);
+    }
+    .code label[for]{
+        padding-top:2px;
+        font-size: medium;
+        font-style: italic;
+    }
+   .code button {
+        margin-top:15px;
+        padding:10px;
+        width: 50%;
+        background: #fece0c;
+        color: #332902;
+        text-transform: uppercase;
+        letter-spacing:1px;
+        font-weight: bold;
+        border-radius: 25px;
+        cursor: pointer;
+        margin-left:80px;
+    }
+    .code button:hover{
+        color: black;
+        transition: 2s;
+
+    }
+    </style>
+
+    </head>
+    <body>
+        <div class="code">
+            <h2>Registration Form</h2>
+        <form>
+            <label for="Title">Title</label>
+            <input type="text" id="title" placeholder="Miss/Mrs/Dr/Prof/Mr" required> 
+
+            <label for="First Name">First Name</label>
+            <input type="text" id="fname" placeholder="First Name" required>
+
+            <label for="Last Name">Last Name</label> 
+            <input type="text" id="lname" placeholder="Last Name" required>
+
+            <label for="Nationality">Nationality</label>
+            <input type="text" id="nationality" placeholder="Nationality" requied>
+
+            <label for="Phone Number">Phone Number</label>
+            <input type="number" id="pnumber" placeholder="Phone Number" required>
+
+            <label for="Gender">Gender</label>
+            <input type="text" id="gender" placeholder="Gender" required> 
+
+            <label for="Email">Email</label>
+            <input type="email" id="email" placeholder="Your email" required> 
+        </form> 
+            <button onclick="submitform()">Submit</button>
+    
+            <div id="data"> </div>
+        </div>
+        <script>
+            function submitform(){
+            document.getElementById("data").innerHTML = "";
+            var title = document.getElementById("title").value;
+            var fname = document.getElementById("fname").value;
+            var lname = document.getElementById("lname").value;
+            var nationality = document.getElementById("nationality").value;
+            var pnumber = document.getElementById("pnumber").value;
+            var gender = document.getElementById("gender").value;
+            var email = document.getElementById("email").value;
+            if (title !== ""){
+            if (fname !== ""){
+            if (lname !== ""){
+            if (nationality !== ""){
+            if (pnumber !== "" && pnumber.length === 11 && parseInt (pnumber) > 0 ){
+            if (gender.toLowerCase() === "male" || gender.toLowerCase() === "female"){
+            var sp = email.split ("@");
+            var spp = email.split (".");
+            if (email !== "" && sp.length === 2 && spp.length >= 2){
+            var res = '<h1>Registration Details</h1><br><p>Title: '+title+'</p><br><p>First Name: '+fname+'</p><br><p>Last Name: '+lname+'</p><br><p>Nationality: '+nationality+'</p><br><p>Phone Number: '+pnumber+'</p><br><p>Gender: '+gender+'</p><br><p>Email Address: '+email+'</p>';
+            document.getElementById("data").innerHTML = res;
+            document.getElementById("title").value = "";
+            document.getElementById("fname").value = "";
+            document.getElementById("lname").value = "";
+            document.getElementById("nationality").value = "";
+            document.getElementById("plumber").value = "";
+            document.getElementById("gender").value = "";
+            document.getElementById("email").value ="";
+                   
+            }else {
+            alert ("Email address is invalid!");
+            }
+            }else {
+            alert ("Gender field must be either male or female!");
+            }
+            }else {
+            alert ("Phone number field is invalid!");
+            }
+            }else {
+            alert ("Nationality field is required!");
+            }
+            }else {
+            alert ("Last name field is required!");
+            }
+            }else {
+            alert ("First name field is required!");
+            }
+            }else {
+            alert ("The title field is required");
+            }
+            }
+        </script> 
+    </body>
+</html>
